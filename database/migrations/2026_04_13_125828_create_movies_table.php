@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('status');
-            $table->integer('rating');
+            $table->enum('status', ['watched', 'to_watch']);
+            $table->integer('rating')->nullable();
             $table->timestamps();
         });
     }

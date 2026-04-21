@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -12,7 +13,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = DB::table('movies')->get();
+
+        return view('layouts.movies', ['movies' => $movies]);
     }
 
     /**
@@ -28,7 +31,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|unique:movies|max:255',
+            'description' => 'required|max:255',
+            'status' => 'required',
+        ]);
+
+        $movie = Movie::create($request->except('_token'));
     }
 
     /**

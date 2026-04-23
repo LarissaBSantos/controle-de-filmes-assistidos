@@ -1,7 +1,7 @@
 @php
     $translations = [
         'watched' => 'Assistido',
-        'to_watched' => 'Para assistir'
+        'to_watch' => 'Para assistir'
     ];
 @endphp
 
@@ -61,7 +61,7 @@
         color: #166534; 
     }
 
-    .badge[data-status = "to_watched"]  { 
+    .badge[data-status = "to_watch"]  { 
         background: #fee2e2; 
         color: #991b1b; 
     }

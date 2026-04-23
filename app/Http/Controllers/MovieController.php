@@ -35,9 +35,18 @@ class MovieController extends Controller
             'title' => 'required|unique:movies|max:255',
             'description' => 'required|max:255',
             'status' => 'required',
+        ], [
+            'title.required' => 'O título é obrigatório.',
+            'title.unique' => 'Já existe um filme com este nome.',
+            'title.max' => 'O título não pode ter mais que 255 caracteres.',
+            
+            'description.required' => 'A descrição é obrigatória',
+            'status.required' => 'Selecione se você já assistiu ou não esse filme',
         ]);
 
         $movie = Movie::create($request->except('_token'));
+
+        return redirect()->route('movies');
     }
 
     /**

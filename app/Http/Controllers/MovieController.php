@@ -15,7 +15,7 @@ class MovieController extends Controller
     {
         $movies = DB::table('movies')->get();
 
-        return view('layouts.movies', ['movies' => $movies]);
+        return view('movies/index', ['movies' => $movies]);
     }
 
     /**

@@ -3,6 +3,7 @@
   <head>
       <title>Controle de filmes assistidos</title>
       <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+      @stack('styles')
   </head>
   <body>
     <header class="header">
@@ -10,16 +11,8 @@
     </header>
     <main class="container">
       @yield('content')
-      <x-add-movie/>
+      @include('movies.create')
     </main>
+    @stack('scripts')
   </body>
 </html>
-
-<script>
-  function showForm(){
-    document.querySelector('.form-container.none').classList.remove('none');
-  }
-  function hiddenForm(){
-    document.querySelector('.form-container').classList.add('none');
-  }
-</script>

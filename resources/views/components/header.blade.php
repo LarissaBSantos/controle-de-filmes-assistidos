@@ -1,5 +1,5 @@
 <div class="header">
-  <button class="add-movie" onclick="showForm()">Adicionar novo filme</button>
+  <button class="add-movie">Adicionar novo filme</button>
 </div>
 
 <style scoped>

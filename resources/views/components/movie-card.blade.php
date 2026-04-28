@@ -16,7 +16,7 @@
             Editar
         </a>
         
-        <form action="{{ route('movies.destroy', $id) }}" method="DELETE">
+        <form action="{{ route('movies.destroy', $id) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">

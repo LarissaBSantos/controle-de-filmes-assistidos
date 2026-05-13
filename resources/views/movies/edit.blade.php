@@ -27,9 +27,12 @@
         </select>
     </div>
 
-    <div class="form-group rating">
-        <label for="rating">Avaliação (1 a 5):</label>
-        <input type="range" min="1" max="5" id="rating" name="rating" value="{{ $movie->rating }}">
+    <div class="form-group range">
+        <label for="rating">Avaliação:</label>
+        <div class="range-wrap">
+            <span class="bubble"></span>
+            <input type="range" min="1" max="5" id="rating" name="rating" value="{{ $movie->rating }}">
+        </div>
     </div>
 
     <button class="btn-submit" type="submit">Atualizar</button>

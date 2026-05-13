@@ -172,6 +172,7 @@ select:focus {
 
 input[type="range"] {
   margin-top: 5px;
+  width: 100%;
 }
 
 button.btn-submit {
@@ -205,6 +206,26 @@ button.btn-close:hover {
   color: red;
   font-size: 0.9em;
   margin-top: 5px;
+}
+
+.form-group.range {
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.range-wrap {
+  position: relative;
+  margin-left: 8px;
+}
+
+.bubble {
+  background: #045fa4;
+  color: white;
+  padding: 4px 8px;
+  position: absolute;
+  border-radius: 15px;
+  top: -30px; 
+  transform: translateX(-50%); 
 }
 
 .hidden {

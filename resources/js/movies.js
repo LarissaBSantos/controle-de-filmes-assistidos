@@ -23,11 +23,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const selectStatus = document.getElementById('status');
-const divRating = document.querySelector('.form-group.rating');  
+const divRating = document.querySelector('.form-group.range');  
 
 selectStatus.addEventListener('change', () => {
-  console.log(divRating);
   divRating.classList.toggle('hidden');
+});
+
+const inputRating = document.getElementById('rating');
+const numberRating = document.querySelector('.bubble');
+
+function showNumberRating() {
+  numberRating.innerHTML = inputRating.value;
+
+  const val = inputRating.value;
+  const min = inputRating.min;
+  const max = inputRating.max;
+  const newValue = Number(((val - min) * 100) / (max - min));
+  
+  numberRating.style.left = `calc(${newValue}% + (${8 - newValue * 0.15}px))`;
+}
+
+inputRating.addEventListener('change', () => {
+  showNumberRating();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  showNumberRating();
 });
 
 /* =====================

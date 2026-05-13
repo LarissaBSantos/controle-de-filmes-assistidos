@@ -13,9 +13,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = DB::table('movies')->get();
+        $movies = Movie::all();
 
-        return view('movies/index', ['movies' => $movies]);
+        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -60,17 +60,35 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
+    public function edit(int $id)
     {
-        //
+        $movies = Movie::all();
+        $movie = Movie::find($id);
+
+        return view('movies.index', compact('movies', 'movie'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, int $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'status' => 'required',
+        ], [
+            'title.required' => 'O título é obrigatório.',
+            'title.max' => 'O título não pode ter mais que 255 caracteres.',
+            
+            'description.required' => 'A descrição é obrigatória',
+            'status.required' => 'Selecione se você já assistiu ou não esse filme',
+        ]);
+
+        $movie = Movie::findOrFail($id);
+        $movie->updateOrFail($request->all());
+
+        return redirect()->route('movies');
     }
 
     /**

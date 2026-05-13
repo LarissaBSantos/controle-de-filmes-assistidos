@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const selectStatus = document.getElementById('status');
+const divRating = document.querySelector('.form-group.rating');  
+
+selectStatus.addEventListener('change', () => {
+  console.log(divRating);
+  divRating.classList.toggle('hidden');
+});
+
 /* =====================
   INDEX (CARDS)
 ===================== */

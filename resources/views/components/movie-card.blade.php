@@ -35,13 +35,15 @@
     <p class="description">
         {{ $description }}
     </p>
-    <div class="rating">
-        @for($i = 0; $i < $rating; $i++)
-            <span class="star">★</span>
-        @endfor
-        @for($i = 0; $i < 5 - $rating; $i++)
-            <span class="star empty">★</span>
-        @endfor
-        <span class="rating-number">({{ $rating }}/5)</span>
-    </div>
+    @if($status == "watched")
+        <div class="rating">
+            @for($i = 0; $i < $rating; $i++)
+                <span class="star">★</span>
+            @endfor
+            @for($i = 0; $i < 5 - $rating; $i++)
+                <span class="star empty">★</span>
+            @endfor
+            <span class="rating-number">({{ $rating }}/5)</span>
+        </div>
+    @endif
 </div>

@@ -1,6 +1,6 @@
-<form action="/add-movie" method="POST" class="form-container hidden">
+<form action="/add-movie" method="POST" class="form-container create hidden">
     @csrf
-    <button class="btn-close" type="button" onclick="hiddenForm()">X</button>
+    <button class="btn-close" type="button">X</button>
     <h2>Adicionar novo filme</h2>
 
     <div class="form-group">

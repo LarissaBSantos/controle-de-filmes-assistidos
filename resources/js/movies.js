@@ -5,14 +5,19 @@ function showForm() {
   document.querySelector('.form-container.hidden').classList.remove('hidden');
 }
 
-function hiddenForm() {
-  document.querySelector('.form-container').classList.add('hidden');
-}
+const renderedForm = document.querySelector('.form-container');
+const btnCloseForm = document.querySelector('.btn-close');
+
+btnCloseForm.addEventListener('click', () => {
+  renderedForm.classList.add('hidden');
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('.add-movie');
+  const createForm = document.querySelector('.form-container.create');
 
   button.addEventListener('click', () => {
+    if(renderedForm != createForm) return;
     showForm();
   });
 });

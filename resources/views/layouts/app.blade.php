@@ -11,7 +11,6 @@
     </header>
     <main class="container">
       @yield('content')
-      @include('movies.create')
     </main>
     @stack('scripts')
   </body>

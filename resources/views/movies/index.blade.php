@@ -9,13 +9,13 @@
 @endpush
 
 @section('content')
-  @foreach ($movies as $movie)
+  @foreach ($movies as $m)
     <x-movie-card
-      :id="$movie->id"
-      :title="$movie->title" 
-      :status="$movie->status" 
-      :description="$movie->description" 
-      :rating="$movie->rating"
+      :id="$m->id"
+      :title="$m->title" 
+      :status="$m->status" 
+      :description="$m->description" 
+      :rating="$m->rating"
     />
   @endforeach
 
@@ -23,4 +23,9 @@
       <p>Nenhum filme cadastrado</p>
   @endempty
 
+  @if(isset($movie))
+    @include('movies.edit')
+  @else
+    @include('movies.create')
+  @endif
 @endsection

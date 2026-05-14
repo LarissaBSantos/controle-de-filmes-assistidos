@@ -16,7 +16,7 @@
             Editar
         </a>
         
-        <form action="{{ route('movies.destroy', $id) }}" method="POST">
+        <form action="{{ route('movies.destroy', $id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este filme?');">
             @csrf
             @method('DELETE')
             <button type="submit">

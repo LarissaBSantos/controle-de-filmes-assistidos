@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label for="description">Descrição:</label>
-        <input type="text" id="description" name="description" value="{{ $movie->description }}">
+        <textarea rows="3" id="description" name="description">{{ $movie->description }}</textarea>
         @error('description')
             <div style="color: red;">{{ $message }}</div>
         @enderror

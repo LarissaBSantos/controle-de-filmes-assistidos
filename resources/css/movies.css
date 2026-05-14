@@ -157,15 +157,18 @@ label {
 }
 
 input[type="text"],
-select {
+select,
+textarea {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   transition: 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 input[type="text"]:focus,
-select:focus {
+select:focus,
+textarea:focus {
   border-color: var(--primary-color);
   outline: none;
 }
@@ -173,6 +176,11 @@ select:focus {
 input[type="range"] {
   margin-top: 5px;
   width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
 }
 
 button.btn-submit {

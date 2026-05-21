@@ -11,9 +11,19 @@ class MovieController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $movies = Movie::all();
+        $query = Movie::query();
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('rating')) {
+            $query->where('rating', '>=', $request->rating);
+        }
+
+        $movies = $query->get();
 
         return view('movies.index', compact('movies'));
     }
@@ -35,6 +45,7 @@ class MovieController extends Controller
             'title' => 'required|unique:movies|max:255',
             'description' => 'required|max:255',
             'status' => 'required',
+            'rating' => 'nullable|integer|min:1|max:5',
         ], [
             'title.required' => 'O título é obrigatório.',
             'title.unique' => 'Já existe um filme com este nome.',
@@ -44,7 +55,13 @@ class MovieController extends Controller
             'status.required' => 'Selecione se você já assistiu ou não esse filme',
         ]);
 
-        $movie = Movie::create($request->except('_token'));
+        $data = $request->except('_token');
+
+        if ($data['status'] === 'to_watch') {
+            $data['rating'] = null;
+        }
+
+        $movie = Movie::create($data);
 
         return redirect()->route('movies');
     }
@@ -77,6 +94,7 @@ class MovieController extends Controller
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'status' => 'required',
+            'rating' => 'nullable|integer|min:1|max:5',
         ], [
             'title.required' => 'O título é obrigatório.',
             'title.max' => 'O título não pode ter mais que 255 caracteres.',
@@ -85,8 +103,14 @@ class MovieController extends Controller
             'status.required' => 'Selecione se você já assistiu ou não esse filme',
         ]);
 
+        $data = $request->all();
+
+        if ($data['status'] === 'to_watch') {
+            $data['rating'] = null;
+        }
+
         $movie = Movie::findOrFail($id);
-        $movie->updateOrFail($request->all());
+        $movie->updateOrFail($data);
 
         return redirect()->route('movies');
     }

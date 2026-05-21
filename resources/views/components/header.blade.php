@@ -1,4 +1,26 @@
 <div class="header">
+  <form class="filter" method="GET">
+    <x-filter
+      label="Filtrar por status"
+      name="status"
+      :options="[
+        '' => 'Todos',
+        'watched' => 'Assistidos',
+        'to_watch' => 'Quero assistir'
+      ]"
+    />
+    <x-filter
+      label="Filtrar por avaliação"
+      name="rating"
+      :options="[
+          '' => 'Todas',
+          '2' => '2+ estrelas',
+          '3' => '3+ estrelas',
+          '4' => '4+ estrelas',
+          '5' => '5 estrelas'
+      ]"
+    />
+  </form>
   <button class="add-movie">Adicionar novo filme</button>
 </div>
 

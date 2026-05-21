@@ -239,3 +239,15 @@ button.btn-close:hover {
 .hidden {
   display: none;
 }
+
+/* =====================
+  FORMS (FILTER)
+===================== */
+.filter {
+  display: inline-flex;
+  margin: 16px;
+}
+
+.filter div {
+  margin: 16px;
+}

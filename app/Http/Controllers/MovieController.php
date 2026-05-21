@@ -15,6 +15,10 @@ class MovieController extends Controller
     {
         $query = Movie::query();
 
+        if($request->filled('title')) {
+            $query->where('title', 'like', '%'.$request->title.'%');
+        }
+
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }

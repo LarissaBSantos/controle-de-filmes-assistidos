@@ -1,5 +1,11 @@
 <div class="header">
   <form class="filter" method="GET">
+    <span> 
+      <button>🔍</button>
+      <input type="text" name="title" placeholder="Buscar filme..."
+        value="{{ request('title') }}"
+      >
+    </span>
     <x-filter
       label="Filtrar por status"
       name="status"

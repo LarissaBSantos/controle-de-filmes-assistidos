@@ -5,9 +5,8 @@
   background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  margin: 16px;
+  margin: 8px;
   padding: 24px;
-  width: 320px;
   transition: transform 0.2s;
 }
 

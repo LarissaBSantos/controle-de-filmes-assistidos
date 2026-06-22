@@ -1,58 +1,146 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎬 Controle de Filmes Assistidos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema web desenvolvido com Laravel para gerenciamento pessoal de filmes assistidos e filmes que o usuário deseja assistir.
 
-## About Laravel
+O projeto permite cadastrar, editar, visualizar e remover filmes, além de oferecer funcionalidades de busca e filtragem para facilitar a organização da coleção.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📸 Screenshots
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Listagem
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![Lista de Filmes](README/images/index.png)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Cadastro
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![Cadastro de Filme](README/images/create.png)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
 
-## Agentic Development
+### Filtros
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+![Filtros](README/images/filters.png)
 
-```bash
-composer require laravel/boost --dev
 
-php artisan boost:install
+### Busca por Título
+![Busca](README/images/search.png)
+
+
+## ✨ Funcionalidades
+
+* CRUD de filmes
+* Busca por título
+* Filtro por status:
+
+  * Assistido
+  * Quero assistir
+* Filtro por avaliação:
+
+  * 2 estrelas ou mais
+  * 3 estrelas ou mais
+  * 4 estrelas ou mais
+  * 5 estrelas
+
+
+## 🛠️ Tecnologias Utilizadas
+
+* PHP 8+
+* Laravel
+* Blade
+* MySQL
+* HTML5
+* CSS3
+* JavaScript
+
+
+
+## 📂 Estrutura do Projeto
+
+```text
+app/
+├── Http/
+│   └── Controllers/
+├── Models/
+resources/
+├── views/
+│   ├── components/
+│   └── movies/
+database/
+├── migrations/
+routes/
+└── web.php
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
-## Contributing
+## 📚 Aprendizados
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Durante o desenvolvimento deste projeto foram praticados conceitos como:
 
-## Code of Conduct
+* Arquitetura MVC
+* Eloquent ORM
+* Query Builder
+* Rotas e Controllers
+* Componentes Blade
+* Formulários com método GET e POST
+* Filtros dinâmicos
+* Busca utilizando `LIKE`
+* Validação de dados
+* Integração com banco de dados MySQL
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🚀 Como Executar o Projeto
 
-## License
+### 1. Clonar o repositório
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/LarissaBSantos/controle-de-filmes-assistidos
+```
+
+### 2. Acessar a pasta
+
+```bash
+cd controle-de-filmes-assistidos
+```
+
+### 3. Instalar dependências
+
+```bash
+composer install
+```
+
+### 4. Configurar o arquivo `.env`
+
+Configure as credenciais do banco de dados:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=controle_de_filmes_assistidos
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5. Gerar a chave da aplicação
+
+```bash
+php artisan key:generate
+```
+
+### 6. Executar as migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Iniciar o servidor
+
+```bash
+php artisan serve
+```
+
+A aplicação estará disponível em:
+
+```text
+http://127.0.0.1:8000
+```
